@@ -464,4 +464,52 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+    // Simplified Review Prompt Functionality
+    const reviewPromptBtn = document.getElementById('review-prompt-btn');
+    const reviewPromptModal = document.getElementById('review-prompt-modal');
+    const reviewPromptClose = document.querySelector('.review-prompt-close');
+    const remindLaterBtn = document.getElementById('remind-later');
+
+    // Show the button immediately
+    if (reviewPromptBtn) {
+        reviewPromptBtn.style.display = 'flex';
+        reviewPromptBtn.style.opacity = '1';
+        reviewPromptBtn.style.visibility = 'visible';
+    }
+
+    // Open modal when button is clicked
+    if (reviewPromptBtn && reviewPromptModal) {
+        reviewPromptBtn.addEventListener('click', () => {
+            reviewPromptModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // Close modal functionality
+    if (reviewPromptClose) {
+        reviewPromptClose.addEventListener('click', () => {
+            reviewPromptModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Remind later functionality
+    if (remindLaterBtn) {
+        remindLaterBtn.addEventListener('click', () => {
+            reviewPromptModal.classList.remove('active');
+            document.body.style.overflow = '';
+            reviewPromptBtn.style.display = 'none';
+        });
+    }
+
+    // Close on outside click
+    if (reviewPromptModal) {
+        reviewPromptModal.addEventListener('click', (e) => {
+            if (e.target === reviewPromptModal) {
+                reviewPromptModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
 }); 
