@@ -343,4 +343,125 @@ document.addEventListener('DOMContentLoaded', function() {
             lightboxImg.alt = '';
         }, 300);
     }
+
+    // Initialize room sliders immediately
+    const sliders = [
+        { id: 'water-lilies-slider', path: 'assets/rooms/water' },
+        { id: 'rose-bud-slider', path: 'assets/rooms/rose' },
+        { id: 'hansta-gulmohar-slider', path: 'assets/rooms/hansta' },
+        { id: 'coconut-cluster-slider', path: 'assets/rooms/coconut' },
+        { id: 'mango-hum-slider', path: 'assets/rooms/mango' }
+    ];
+
+    class ImageSlider {
+        constructor(sliderId, folderPath, totalImages = 5) {
+            this.slider = document.getElementById(sliderId);
+            if (!this.slider) return;
+            
+            this.folderPath = folderPath;
+            this.totalImages = totalImages;
+            this.currentIndex = 1;
+            
+            // Get parent container and buttons
+            this.sliderContainer = this.slider.closest('.room-slider');
+            this.prevBtn = this.sliderContainer.querySelector('.prev');
+            this.nextBtn = this.sliderContainer.querySelector('.next');
+            
+            // Bind event listeners
+            this.prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.prevSlide();
+            });
+            this.nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.nextSlide();
+            });
+
+            // Add touch support
+            this.initTouchSupport();
+        }
+
+        initTouchSupport() {
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            this.sliderContainer.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, false);
+            
+            this.sliderContainer.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > 50) { // threshold of 50px
+                    if (diff > 0) {
+                        this.nextSlide();
+                    } else {
+                        this.prevSlide();
+                    }
+                }
+            }, false);
+        }
+
+        async prevSlide() {
+            this.currentIndex--;
+            if (this.currentIndex < 1) {
+                this.currentIndex = this.totalImages;
+            }
+            await this.updateImage();
+        }
+
+        async nextSlide() {
+            this.currentIndex++;
+            if (this.currentIndex > this.totalImages) {
+                this.currentIndex = 1;
+            }
+            await this.updateImage();
+        }
+
+        async updateImage() {
+            const img = this.slider.querySelector('img');
+            if (img) {
+                const newSrc = `${this.folderPath}/${this.currentIndex}.jpg`;
+                try {
+                    await this.imageExists(newSrc);
+                    img.src = newSrc;
+                } catch (error) {
+                    console.log('Image not found:', newSrc);
+                    if (this.currentIndex > 1) {
+                        this.currentIndex = 1;
+                        await this.updateImage();
+                    }
+                }
+            }
+        }
+
+        imageExists(url) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(true);
+                img.onerror = () => reject(false);
+                img.src = url;
+            });
+        }
+    }
+
+    // Initialize sliders
+    sliders.forEach(slider => {
+        new ImageSlider(slider.id, slider.path);
+    });
+
+    // Add keyboard support
+    document.addEventListener('keydown', (e) => {
+        if (document.getElementById('rooms-modal').style.display === 'block') {
+            const visibleSlider = document.querySelector('.room-slider');
+            if (e.key === 'ArrowLeft') {
+                visibleSlider.querySelector('.prev').click();
+            } else if (e.key === 'ArrowRight') {
+                visibleSlider.querySelector('.next').click();
+            }
+        }
+    });
 }); 
