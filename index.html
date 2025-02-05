@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camp Temgarh</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FGMBDY796D"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-FGMBDY796D');
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/favicon.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="assets/favicon.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta property="og:image" content="assets/favicon.jpg" />
+    <meta property="og:title" content="Camp Temgarh" />
+    <meta property="og:description" content="Offbeat🌿 & Pet-Friendly 🐾- 5 cozy cottages set in a dolina - a natural limestone valley, just 45 mins from Dehradun and Mussoorie." />
+    <meta name="description" content="Offbeat🌿 & Pet-Friendly 🐾- 5 cozy cottages set in a dolina - a natural limestone valley, just 45 mins from Dehradun and Mussoorie.">
+    <link rel="stylesheet" href="css/modal-updates.css">
+</head>
+<body>
+    <div class="container">
+        <div class="hero-image">
+            <a href="https://www.instagram.com/camp_temgarh/" target="_blank" class="instagram-follow-btn">
+                <i class="fab fa-instagram"></i>
+                <span>Follow Camp Temgarh</span>
+            </a>
+            <img src="assets/heroimage.jpg" alt="Camp Temgarh" loading="eager">
+        </div>
+        <header>
+            <h1>Camp Temgarh</h1>
+            <p class="tagline">
+                Mulshi, Pune
+            </p>
+            <p class="sub-tagline">
+                30 kms from Pune along a winding road, rucked away in a little village of Mulshi Taluka, is Camp Temgarh - a nature retreat.
+            </p>
+        </header>
+
+        <div class="quick-access-grid">
+            <div class="grid-item" id="nearby-btn">
+                <div class="icon-wrapper">
+                    <i class="fas fa-compass"></i>
+                </div>
+                <h3>Location</h3>
+            </div>
+            <div class="grid-item" id="reviews-btn">
+                <div class="icon-wrapper">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>Reviews</h3>
+            </div>
+            <div class="grid-item" id="rules-btn">
+                <div class="icon-wrapper">
+                    <i class="fas fa-scroll"></i>
+                </div>
+                <h3>Wifi &<br>Rules</h3>
+            </div>
+            <div class="grid-item" id="emergency-btn">
+                <div class="icon-wrapper">
+                    <i class="fas fa-phone-volume"></i>
+                </div>
+                <h3>Emergency<br>Contact</h3>
+            </div>
+            
+            <div class="grid-item" id="specials-btn">
+                <div class="icon-wrapper">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h3>Things<br>To Do</h3>
+            </div>
+            <div class="grid-item" id="book-now-btn">
+                <div class="icon-wrapper">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h3>Book<br>Now</h3>
+            </div>
+        </div>
+
+        <section class="featured-sections">
+            <div class="feature-card" id="amenities-card">
+                <img src="assets/amenities.webp" 
+                     alt="Amenities" 
+                     width="130" 
+                     height="85"
+                     loading="lazy"
+                     decoding="async">
+                <div class="card-content">
+                    <h2>Amenities</h2>
+                    <p>Find what's inside</p>
+                </div>
+            </div>
+            
+            <div class="feature-card" id="host-favorites">
+                <img src="assets/food.webp" 
+                     alt="Food" 
+                     width="130" 
+                     height="85"
+                     loading="lazy"
+                     decoding="async">
+                <div class="card-content">
+                    <h2>Food</h2>
+                    <p>Dine and unwind</p>
+                </div>
+            </div>
+            
+            <div class="feature-card" id="gallery-card">
+                <img src="assets/gallery.webp" 
+                     alt="Property Gallery" 
+                     width="130" 
+                     height="85"
+                     loading="lazy"
+                     decoding="async">
+                <div class="card-content">
+                    <h2>Gallery</h2>
+                    <p>View property images</p>
+                </div>
+            </div>
+            
+            <div class="feature-card" id="rooms-card">
+                <img src="assets/rooms.webp" 
+                     alt="Our Rooms" 
+                     width="130" 
+                     height="85"
+                     loading="lazy"
+                     decoding="async">
+                <div class="card-content">
+                    <h2>Rooms</h2>
+                    <p>Your mountain retreat</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p class="quote">This house becomes more than bricks and mortar when it holds the laughter and memories of travelers like you.</p>
+            <div class="footer-buttons">
+                <button id="book-now-footer-btn">Book Now</button>
+                <button id="share-btn">Share property</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <div id="book-now-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Book Your Nature Retreat 🌿</h2>
+            <div class="booking-options">
+                <a href="https://camptemgarh.com/" target="_blank" class="booking-link">
+                    <div class="booking-platform">
+                        <div class="platform-icon-wrapper">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="booking-platform-content">
+                            <h3>Visit Website</h3>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="https://wa.me/919422516089" target="_blank" class="booking-link">
+                    <div class="booking-platform">
+                        <div class="platform-icon-wrapper">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="booking-platform-content">
+                            <h3>Chat on WhatsApp</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="nearby-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close">&times;</span>
+            <h2>Address</h2>
+            <div class="modal-sections">
+                <div class="modal-section">
+                    <div class="address-card">
+                        <div class="address-content">
+                            <h3>📍 Property Address</h3>
+                            <p>Lavasa road, Mulshi Taluka, Watunde, Maharashtra 411032</p>
+                            <a href="https://www.google.com/maps/place/Camp+Temgarh+%7C+Best+Nature+Resorts+near+Mulshi,+Pune/@18.446322,73.5683903,17z/data=!4m10!3m9!1s0x3bc298bdb803c3cf:0x96bd08cca0dc5fa3!5m3!1s2025-01-30!4m1!1i2!8m2!3d18.446322!4d73.5709706!16s%2Fg%2F1v_slptm?entry=ttu&g_ep=EgoyMDI1MDEyOC4wIKXMDSoASAFQAw%3D%3D" 
+                               target="_blank" 
+                               class="map-button">
+                                <i class="fas fa-map-marker-alt"></i> Open in Google Maps
+                            </a>
+                        </div>
+                        <div class="location-preview">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3437.8876960661387!2d73.5683903!3d18.446322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc298bdb803c3cf%3A0x96bd08cca0dc5fa3!2sCamp%20Temgarh%20%7C%20Best%20Nature%20Resorts%20near%20Mulshi%2C%20Pune!5e0!3m2!1sen!2sin!4v1710836983044!5m2!1sen!2sin"
+                                width="100%" 
+                                height="250" 
+                                style="border:0; border-radius: 12px;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <h3>🚗 How to Reach</h3>
+                    <ul class="transport-options">
+                        <li>
+                            <strong>From Pune Railway Station:</strong> Take a taxi or cab directly to Camp Temgarh, which is approximately 45 km away and takes about 1.5 hours.
+                        </li>
+                        <li>
+                            <strong>From Pune Airport:</strong> The best way is to hire a taxi, which is around 50 km away and takes about 1.5 hours.
+                        </li>
+                        <li>
+                            <strong>Nearest Bus Stand:</strong> The nearest bus stand is in Mulshi, from where you can reach Camp Temgarh, approximately 15 km away.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="emergency-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Emergency Contacts</h2>
+            <div class="modal-sections">
+                <div class="modal-section emergency">
+                    <div class="emergency-contacts">
+
+                        <div class="contact-item">
+                            <h4>Property Contacts</h4>
+                            <p>Host Contact (WhatsApp/Call): +91 94225 16089</p>
+                        </div>
+
+                        <div class="contact-item">
+                            <h4>Emergency Services</h4>
+                            <p>Police: 100</p>
+                            <p>Ambulance/Medical: 102, 108</p>
+                            <p>Fire: 101</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h4>Disaster Management</h4>
+                            <p>Control Room: 0177-2929688, 2629439</p>
+                            <p>2629939, 2628940</p>
+                            <p>Helpline: 1070, 1077</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <h4>Other Helplines</h4>
+                            <p>Crime Stopper: 1090</p>
+                            <p>Women Helpline: 1091</p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rules-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close">&times;</span>
+            <h2>WiFi & House Rules</h2>
+
+            <!-- WiFi Section -->
+            <div class="rules-section wifi-section">
+                <h3><i class="fas fa-wifi"></i> WiFi Details</h3>
+                <div class="wifi-details">
+                    <div class="wifi-item">
+                        <span class="label">Network:</span>
+                        <span class="value">Camp Temgarh</span>
+                    </div>
+                    <div class="wifi-item">
+                        <span class="label">Password:</span>
+                        <span class="value">Temgarh@123</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- House Rules Section -->
+            <div class="rules-section">
+                <h3><i class="fas fa-scroll"></i> House Rules & Policies</h3>
+                
+                <div class="rules-list">
+                    <!-- Check-in/Check-out -->
+                    <div class="rule-category">
+                        <div class="rule-header">
+                            <i class="fas fa-clock"></i>
+                            <h4>Timings</h4>
+                        </div>
+                        <ul>
+                            <li>Check-in Time: 12 PM</li>
+                            <li>Check-out Time: 11 AM</li>
+                        </ul>
+                    </div>
+
+                    <!-- Payment & Documentation -->
+                    <div class="rule-category">
+                        <div class="rule-header">
+                            <i class="fas fa-money-bill"></i>
+                            <h4>Payment & Documentation</h4>
+                        </div>
+                        <ul>
+                            <li>70% advance payment required for booking confirmation</li>
+                            <li>Balance payment to be made at check-in</li>
+                            <li>Passport, Aadhar and Driving License are accepted as ID proof(s)</li>
+                            <li>Local IDs are allowed</li>
+                        </ul>
+                    </div>
+
+                    <!-- Property Rules -->
+                    <div class="rule-category">
+                        <div class="rule-header">
+                            <i class="fas fa-list-ul"></i>
+                            <h4>Property Rules</h4>
+                        </div>
+                        <ul>
+                            <li>Pets are not allowed</li>
+                            <li>Outside food is allowed</li>
+                            <li>Non-veg food is allowed</li>
+                            <li>In-room dining available</li>
+                            <li>Food delivery service is not available at the property</li>
+                            <li>Alcohol consumption is not allowed within the property premises</li>
+                            <li>Smoking within the premises is allowed</li>
+                            <li>Does not allow private parties or events</li>
+                            <li>Guests are requested not to invite outside visitors in the room during their stay</li>
+                        </ul>
+                    </div>
+
+                    <!-- Guest Policies -->
+                    <div class="rule-category">
+                        <div class="rule-header">
+                            <i class="fas fa-user-friends"></i>
+                            <h4>Guest Policies</h4>
+                        </div>
+                        <ul>
+                            <li>Unmarried couples allowed</li>
+                            <li>Guests below 18 years of age are not allowed at the property</li>
+                            <li>This property is accessible to guests who use a wheelchair. Guests are requested to carry their own wheelchair</li>
+                        </ul>
+                    </div>
+
+                    <!-- Important Notes -->
+                    <div class="rule-category">
+                        <div class="rule-header">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <h4>Important Notes</h4>
+                        </div>
+                        <ul>
+                            <li>No DJ or loud music permitted at the property</li>
+                            <li>No televisions available in rooms</li>
+                            <li>No intercom or room service facilities</li>
+                            <li>This is a nature retreat, not a commercial resort</li>
+                        </ul>
+                    </div>
+
+                    <!-- Safety Advisory -->
+                    <div class="rule-category">
+                        <div class="rule-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Safety Advisory</h4>
+                        </div>
+                        <ul>
+                            <li>River access is at guest's own risk</li>
+                            <li>No lifeguards or staff monitoring the river area</li>
+                            <li>Exercise caution during river activities</li>
+                        </ul>
+                    </div>
+
+                    <!-- Cancellation Policy -->
+                    <div class="rule-category">
+                        <div class="rule-header">
+                            <i class="fas fa-calendar-times"></i>
+                            <h4>Cancellation Policy</h4>
+                        </div>
+                        <div class="policy-details">
+                            <h5>Regular Bookings:</h5>
+                            <ul>
+                                <li>15+ days before check-in: 10% cancellation fee</li>
+                                <li>8-14 days before check-in: 25% cancellation fee</li>
+                                <li>Within 7 days of check-in: No refund</li>
+                            </ul>
+                            
+                            <h5>Special Occasions (Diwali, Christmas, New Year):</h5>
+                            <ul>
+                                <li>Cancellation 2 months prior: 25% cancellation fee</li>
+                                <li>Less than 2 months: No refund</li>
+                            </ul>
+
+                            <h5>Group Bookings:</h5>
+                            <p>Full payment required for entire group, including cancelled members</p>
+
+                            <h5>Refund Process:</h5>
+                            <p>All valid refunds processed via cheque only</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="specials-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close">&times;</span>
+            <h2>Experiences</h2>
+
+
+                <!-- Nearby Attractions -->
+                <div class="activity-section attractions">
+                    <div class="section-header">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Nearby Attractions</h3>
+                    </div>
+                    
+                    <div class="attractions-grid">
+                        <!-- Lavasa -->
+                        <div class="attraction-card">
+                            <div class="attraction-image">
+                                <img src="assets/thingstodo/lavasa.jpg" alt="Lavasa" loading="lazy">
+                            </div>
+                            <div class="attraction-content">
+                                <h4>Lavasa</h4>
+                                <div class="distance">
+                                    <i class="fas fa-route"></i>
+                                    22 kms away
+                                </div>
+                                <p>India's first planned hill city, Lavasa is known for its vibrant architecture, waterfront activities, and pleasant weather. Perfect for a day trip with restaurants, water sports, and scenic views.</p>
+                                <div class="attraction-activities">
+                                    <span><i class="fas fa-water"></i> Water Sports</span>
+                                    <span><i class="fas fa-utensils"></i> Dining</span>
+                                    <span><i class="fas fa-camera"></i> Photography</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Andharban -->
+                        <div class="attraction-card">
+                            <div class="attraction-image">
+                                <img src="assets/thingstodo/andharban.jpg" alt="Andharban Trek" loading="lazy">
+                            </div>
+                            <div class="attraction-content">
+                                <h4>Andharban Trek</h4>
+                                <div class="distance">
+                                    <i class="fas fa-route"></i>
+                                    1 hour away
+                                </div>
+                                <p>Known as the 'Dark Forest', Andharban offers a thrilling trek through dense forests, waterfalls, and stunning valley views. Perfect for adventure enthusiasts and nature lovers.</p>
+                                <div class="attraction-activities">
+                                    <span><i class="fas fa-hiking"></i> Trekking</span>
+                                    <span><i class="fas fa-tree"></i> Forest Trail</span>
+                                    <span><i class="fas fa-mountain"></i> Valley Views</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lake -->
+                        <div class="attraction-card">
+                            <div class="attraction-image">
+                                <img src="assets/thingstodo/lake.jpg" alt="Mulshi Lake" loading="lazy">
+                            </div>
+                            <div class="attraction-content">
+                                <h4>Mulshi Lake</h4>
+                                <div class="distance">
+                                    <i class="fas fa-route"></i>
+                                    45 kms away
+                                </div>
+                                <p>A serene reservoir surrounded by the Sahyadri mountains, Mulshi Lake offers peaceful views and water activities. Perfect for picnics and sunset viewing.</p>
+                                <div class="attraction-activities">
+                                    <span><i class="fas fa-sun"></i> Sunset Views</span>
+                                    <span><i class="fas fa-umbrella-beach"></i> Picnic Spots</span>
+                                    <span><i class="fas fa-fish"></i> Fishing</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kailasgad -->
+                        <div class="attraction-card">
+                            <div class="attraction-image">
+                                <img src="assets/thingstodo/kailasgad.jpg" alt="Kailasgad Fort" loading="lazy">
+                            </div>
+                            <div class="attraction-content">
+                                <h4>Kailasgad Fort</h4>
+                                <div class="distance">
+                                    <i class="fas fa-route"></i>
+                                    1.5 hours away
+                                </div>
+                                <p>A historic fort offering panoramic views of the surrounding valleys. Perfect for history enthusiasts and photographers, especially during monsoon when the landscape turns lush green.</p>
+                                <div class="attraction-activities">
+                                    <span><i class="fas fa-hiking"></i> Fort Trek</span>
+                                    <span><i class="fas fa-history"></i> Heritage Site</span>
+                                    <span><i class="fas fa-mountain"></i> Viewpoint</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="reviews-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Guest Reviews</h2>
+            
+            <!-- Google Reviews Button -->
+            <div class="review-platform-links">
+                <a href="https://www.google.com/maps/place/Camp+Temgarh+%7C+Best+Nature+Resorts+near+Mulshi,+Pune/@18.446322,73.5709706,17z/data=!4m12!3m11!1s0x3bc298bdb803c3cf:0x96bd08cca0dc5fa3!5m3!1s2025-01-30!4m1!1i2!8m2!3d18.446322!4d73.5709706!9m1!1b1!16s%2Fg%2F1v_slptm?entry=ttu&g_ep=EgoyMDI1MDEyOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="platform-button google">
+                    <i class="fab fa-google"></i>
+                    View All Reviews on Google
+                </a>
+            </div>
+
+            <!-- Reviews Grid -->
+            <div class="reviews-grid">
+                <!-- Featured Review -->
+                <div class="review-card featured">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="reviewer-details">
+                            <h4>Prerna Gandhi</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"The resort is located in a remote area and hence ideal location to disconnect from the outside world and relax completely. It is a quick drive from Pune and Mumbai. Great food and best hospitality. It is also scenic as there lies a river directly below the camp area and can be reached with a short walk through the lush green forest. The cottage style living with beautiful landscape really gives cozy vibes. It serves as a nice romantic getaway."</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="reviewer-details">
+                            <h4>Trupti Bhanushali</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"It's a great place to stay in nature, best experience staying at this camp. My kids love this place so much that we are visiting at their camp for 5th time in four years. Location is very beautiful and close to nature. This place is very well maintained... Upon arrival we were warmly welcomed by the staff. Staff was extremely friendly. Food is homely and delicious. Rooms were spacious and comfortable. They have many outdoor games with big size ground. Perfect place to stay if you have big group too (14+ person) and in separate for family they have cottage with full privacy with all requirements taken care of. We loved the ambience. I would highly recommend this place and I would definitely want to come back to this place again."</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="reviewer-details">
+                            <h4>Rushabh Oswal</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"Loved that the resort is at a remote location and that is why you are completely disconnected from the outside world and can enjoy as much as you want of the different activities here. The hospitality and the service of the staff is great especially of Mr. Subhankar Das and Mr. Mahavir. The food is great and tasty as well!! Would recommend for couple of nights for a short break from hustle n bustle of the city."</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="reviewer-details">
+                            <h4>Pallavi Sarode</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"Best place to spend your weekend with musical night. Singer makes evening memorable. Property is full of lush green trees & lots of flowers. Indoor games are available. We lived in coconut cluster. Room is spacious. Lots of books to read. But only English book. No Marathi novel available to read. Only one geyser is working so it's become difficult to manage. Staff is helpful. Food is delicious. But they serve tea & coffee in plastic cups even to drink water only plastic glass is available which is very disappointing. Swimming pool is not maintained properly. Tiles of swimming pool is broken at one place. So be careful. Overall experience is good."</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="reviewer-details">
+                            <h4>Samantha Rodricks</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"Beautiful lush green place. Lovely food. Friendly happy obliging staff. The washrooms are new and clean. The rooms are nice n big n spacious, it was a little damp with seepage patches, nothing major but could do with a tad bit of maintenance. The rooms are clean linen was also clean. Child friendly. Excellent and definitely recommend this place."</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="reviewer-details">
+                            <h4>Shashank Chandekar</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"Visited this place again for a weekend with family. With time this place is getting more beautiful. The change over I have seen this place is fabulous it's becoming more and more beautiful as passing days. Lush greenery, clear air, and beautiful people who always cook and serve food with smile. Rooms are clean, and well maintained as you can expect. Thanks Mr. Rajan for maintaining a wonderful place. Not to forget to mention Mahaveerji who is always there smiling to help you with everything. Enjoy the nature visit them it's totally rejuvenating. Looking forward."</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="reviewer-details">
+                            <h4>Debjani Chaudhury</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <p>"It was a great experience at the place. It is serene, clean, beautiful, and very well maintained. Special mention to the staff Shubhankar and Rakesh Das who treated us with the best service and made us feel at home. The food was amazing. And they also took special care of my elderly parents helping us out in every way possible. Would strongly recommend this place for family and friends. Must visit!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="feedback-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Leave a Feedback</h2>
+            <form id="feedback-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Feedback" required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="food-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close">&times;</span>
+            <h2>Dining Information</h2>
+
+            <!-- Download Menu Button -->
+            <a href="https://drive.google.com/file/d/1zwly-awF8rtsfT1w0aMa6TBHNURkVgFV/edit" target="_blank" class="menu-download-btn">
+                <i class="fas fa-utensils"></i>
+                <span>View Complete Menu Card</span>
+            </a>
+
+            <div class="dining-info">
+                <!-- Meal Timings Section -->
+                <div class="info-section timing-section">
+                    <h3><i class="fas fa-clock"></i> Meal Timings</h3>
+                    <div class="meal-timings-grid">
+                        <div class="timing-card">
+                            <div class="timing-icon"><i class="fas fa-sun"></i></div>
+                            <h4>Breakfast</h4>
+                            <p>9:00 AM - 10:30 AM</p>
+                        </div>
+                        <div class="timing-card">
+                            <div class="timing-icon"><i class="fas fa-cloud-sun"></i></div>
+                            <h4>Lunch</h4>
+                            <p>1:30 PM - 3:00 PM</p>
+                        </div>
+                        <div class="timing-card">
+                            <div class="timing-icon"><i class="fas fa-mug-hot"></i></div>
+                            <h4>High Tea</h4>
+                            <p>5:00 PM - 6:00 PM</p>
+                        </div>
+                        <div class="timing-card">
+                            <div class="timing-icon"><i class="fas fa-moon"></i></div>
+                            <h4>Dinner</h4>
+                            <p>9:00 PM - 10:30 PM</p>
+                        </div>
+                    </div>
+                    <p class="important-note">* Meals once booked cannot be cancelled or refunded</p>
+                </div>
+
+                <!-- Sample Menu Section -->
+                <div class="info-section menu-section">
+                    <h3><i class="fas fa-clipboard-list"></i> Indicative Menu</h3>
+                    <div class="menu-grid">
+                        <div class="meal-time">
+                            <h4><i class="fas fa-sun"></i> Breakfast</h4>
+                            <p>Bread, Butter, Jam and Eggs & Poha & Puri-Aloo or Idli, Wada, Sambhar, Bread Pakoda</p>
+                        </div>
+
+                        <div class="meal-time">
+                            <h4><i class="fas fa-cloud-sun"></i> Lunch</h4>
+                            <p>Veg. Curry & 2 Veg. dishes, Raita & Chicken curry, Roti & Rice, Salad along with a Dessert</p>
+                        </div>
+
+                        <div class="meal-time">
+                            <h4><i class="fas fa-mug-hot"></i> Evening Tea</h4>
+                            <p>With assorted Pakoras/Samosas</p>
+                        </div>
+
+                        <div class="meal-time">
+                            <h4><i class="fas fa-moon"></i> Dinner</h4>
+                            <p>Veg. soup, Veg. starter, Dal, Paneer dish, Vegetable, Chicken dish, Salad, Roti, Rice with a Dessert</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BBQ & Special Requests Section -->
+                <div class="info-section bbq-section">
+                    <h3><i class="fas fa-fire"></i> BBQ & Special Requests</h3>
+                    <p class="bbq-note">Barbeque and specific food requests (at extra cost) to suit your taste buds are welcomed, an intimation in advance would be highly appreciated!</p>
+                    
+                    <div class="bbq-pricing">
+                        <div class="price-card">
+                            <div class="price-header">
+                                <i class="fas fa-leaf"></i>
+                                <h4>BBQ/Starters Veg</h4>
+                            </div>
+                            <div class="price-amount">₹345/-</div>
+                            <div class="price-detail">per Plate (8pcs.)</div>
+                        </div>
+                        
+                        <div class="price-card">
+                            <div class="price-header">
+                                <i class="fas fa-drumstick-bite"></i>
+                                <h4>BBQ/Starters Chicken</h4>
+                            </div>
+                            <div class="price-amount">₹425/-</div>
+                            <div class="price-detail">per Plate (8pcs.)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Notes -->
+                <div class="info-section notes-section">
+                    <div class="menu-notes">
+                        <p><i class="fas fa-info-circle"></i> This is a sample menu & can change depending on availability of resources.</p>
+                        <p><i class="fas fa-utensils"></i> Food is prepared by our chefs trained at Delhi Kitchen, a 25 year old restaurant in Aundh, Pune.</p>
+                        <p><i class="fas fa-snowflake"></i> Refrigerator to chill your beverages, ice and cold-drinks available at site.</p>
+                        <p><i class="fas fa-child"></i> Flexibility for Families with Children on Request.</p>
+                        <p><i class="fas fa-tint"></i> Mineral Water is served throughout your stay.</p>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+            </div>
+        </div>
+    </div>
+
+    <div id="amenities-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close">&times;</span>
+            <h2>Things To Do</h2>
+
+            <div class="amenities-container">
+                <!-- Nearby Attractions -->
+                <div class="amenity-section attractions">
+                    <div class="section-header">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Nearby Attractions</h3>
+                    </div>
+                    
+                    <div class="attractions-grid">
+                        <!-- Lavasa -->
+                        <div class="attraction-card">
+                            <div class="attraction-image">
+                                <img src="assets/thingstodo/lavasa.jpg" alt="Lavasa" loading="lazy">
+                            </div>
+                            <div class="attraction-content">
+                                <h4>Lavasa</h4>
+                                <div class="distance">
+                                    <i class="fas fa-route"></i>
+                                    22 kms away
+                                </div>
+                                <p>India's first planned hill city, Lavasa is known for its vibrant architecture, waterfront activities, and pleasant weather. Perfect for a day trip with restaurants, water sports, and scenic views.</p>
+                                <div class="attraction-activities">
+                                    <span><i class="fas fa-water"></i> Water Sports</span>
+                                    <span><i class="fas fa-utensils"></i> Dining</span>
+                                    <span><i class="fas fa-camera"></i> Photography</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Andharban -->
+                        <div class="attraction-card">
+                            <div class="attraction-image">
+                                <img src="assets/thingstodo/andharban.jpg" alt="Andharban Trek" loading="lazy">
+                            </div>
+                            <div class="attraction-content">
+                                <h4>Andharban Trek</h4>
+                                <div class="distance">
+                                    <i class="fas fa-route"></i>
+                                    1 hour away
+                                </div>
+                                <p>Known as the 'Dark Forest', Andharban offers a thrilling trek through dense forests, waterfalls, and stunning valley views. Perfect for adventure enthusiasts and nature lovers.</p>
+                                <div class="attraction-activities">
+                                    <span><i class="fas fa-hiking"></i> Trekking</span>
+                                    <span><i class="fas fa-tree"></i> Forest Trail</span>
+                                    <span><i class="fas fa-mountain"></i> Valley Views</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lake -->
+                        <div class="attraction-card">
+                            <div class="attraction-image">
+                                <img src="assets/thingstodo/lake.jpg" alt="Mulshi Lake" loading="lazy">
+                            </div>
+                            <div class="attraction-content">
+                                <h4>Mulshi Lake</h4>
+                                <div class="distance">
+                                    <i class="fas fa-route"></i>
+                                    45 kms away
+                                </div>
+                                <p>A serene reservoir surrounded by the Sahyadri mountains, Mulshi Lake offers peaceful views and water activities. Perfect for picnics and sunset viewing.</p>
+                                <div class="attraction-activities">
+                                    <span><i class="fas fa-sun"></i> Sunset Views</span>
+                                    <span><i class="fas fa-umbrella-beach"></i> Picnic Spots</span>
+                                    <span><i class="fas fa-fish"></i> Fishing</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Kailasgad -->
+                        <div class="attraction-card">
+                            <div class="attraction-image">
+                                <img src="assets/thingstodo/kailasgad.jpg" alt="Kailasgad Fort" loading="lazy">
+                            </div>
+                            <div class="attraction-content">
+                                <h4>Kailasgad Fort</h4>
+                                <div class="distance">
+                                    <i class="fas fa-route"></i>
+                                    1.5 hours away
+                                </div>
+                                <p>A historic fort offering panoramic views of the surrounding valleys. Perfect for history enthusiasts and photographers, especially during monsoon when the landscape turns lush green.</p>
+                                <div class="attraction-activities">
+                                    <span><i class="fas fa-hiking"></i> Fort Trek</span>
+                                    <span><i class="fas fa-history"></i> Heritage Site</span>
+                                    <span><i class="fas fa-mountain"></i> Viewpoint</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rooms-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close">&times;</span>
+            <h2>Our Cottages</h2>
+            <div class="driver-accommodation-notice">
+                <p><i class="fas fa-car"></i> Driver accommodation available for ₹1,500/night with all meals included</p>
+            </div>
+            
+            <div class="rooms-grid">
+                <!-- Mistletoe Cottage -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="assets/gallery/rooms/mistletoe/1.jpeg" alt="Mistletoe Cottage" loading="lazy">
+                    </div>
+                    <div class="room-info">
+                        <h3>Mistletoe Cottage</h3>
+                        <div class="room-specs">
+                            <span class="room-size"><i class="fas fa-expand"></i> 800 sq. ft.</span>
+                            <span class="room-type"><i class="fas fa-bed"></i> 2 Bedrooms</span>
+                            <span class="room-location"><i class="fas fa-mountain"></i> Hilltop Side</span>
+                        </div>
+                        <div class="room-description">
+                            <p>Hilltop 2Bedrooms 2Bathrooms petfriendly cottage with a built-in fire place in the living room and forest view.</p>
+                            <div class="special-notes">
+                                <p><i class="fas fa-paw"></i> Pet friendly</p>
+                                <p><i class="fas fa-walking"></i> 2min walk by stairs to Valley side</p>
+                                <p><i class="fas fa-mountain"></i> 5min walk to Ridge point</p>
+                            </div>
+                        </div>
+                        <div class="amenities-list">
+                            <h4>In-room Amenities</h4>
+                            <div class="amenities-grid">
+                                <span><i class="fas fa-wifi"></i> WiFi</span>
+                                <span><i class="fas fa-fire"></i> Built-in Fireplace</span>
+                                <span><i class="fas fa-mug-hot"></i> Tea/Coffee Station</span>
+                                <span><i class="fas fa-phone"></i> Intercom</span>
+                                <span><i class="fas fa-temperature-high"></i> Room Heaters</span>
+                                <span><i class="fas fa-fan"></i> Pedestal Fans</span>
+                                <span><i class="fas fa-bed"></i> Electric Blankets</span>
+                                <span><i class="fas fa-snowflake"></i> Mini-fridge</span>
+                                <span><i class="fas fa-microwave"></i> Microwave</span>
+                                <span><i class="fas fa-tooth"></i> Dental Kit</span>
+                                <span><i class="fas fa-pump-soap"></i> Toiletries</span>
+                                <span><i class="fas fa-bath"></i> Bath Towels</span>
+                                <span><i class="fas fa-tshirt"></i> Towel Warming Rack</span>
+                                <span><i class="fas fa-socks"></i> Carpet Slippers</span>
+                            </div>
+                            <p class="additional-services">Hair dryer & Laundry service available on request</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oak Cottage -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="assets/gallery/rooms/oak/1.jpg" alt="Oak Cottage" loading="lazy">
+                    </div>
+                    <div class="room-info">
+                        <h3>Oak Cottage</h3>
+                        <div class="room-specs">
+                            <span class="room-size"><i class="fas fa-expand"></i> 800 sq. ft.</span>
+                            <span class="room-type"><i class="fas fa-bed"></i> 2 Bedrooms</span>
+                            <span class="room-location"><i class="fas fa-mountain"></i> Hilltop Side</span>
+                        </div>
+                        <div class="room-description">
+                            <p>Hilltop 2Bedrooms 2Bathrooms petfriendly cottage with a built-in fire place in the living room and forest views.</p>
+                            <div class="special-notes">
+                                <p><i class="fas fa-paw"></i> Pet friendly</p>
+                                <p><i class="fas fa-walking"></i> 2min walk by stairs to Valley side</p>
+                                <p><i class="fas fa-mountain"></i> 5min walk to Ridge point</p>
+                            </div>
+                        </div>
+                        <div class="amenities-list">
+                            <h4>In-room Amenities</h4>
+                            <div class="amenities-grid">
+                                <span><i class="fas fa-wifi"></i> WiFi</span>
+                                <span><i class="fas fa-fire"></i> Built-in Fireplace</span>
+                                <span><i class="fas fa-mug-hot"></i> Tea/Coffee Station</span>
+                                <span><i class="fas fa-phone"></i> Intercom</span>
+                                <span><i class="fas fa-temperature-high"></i> Room Heaters</span>
+                                <span><i class="fas fa-fan"></i> Pedestal Fans</span>
+                                <span><i class="fas fa-bed"></i> Electric Blankets</span>
+                                <span><i class="fas fa-snowflake"></i> Mini-fridge</span>
+                                <span><i class="fas fa-microwave"></i> Microwave</span>
+                                <span><i class="fas fa-tooth"></i> Dental Kit</span>
+                                <span><i class="fas fa-pump-soap"></i> Toiletries</span>
+                                <span><i class="fas fa-bath"></i> Bath Towels</span>
+                                <span><i class="fas fa-tshirt"></i> Towel Warming Rack</span>
+                                <span><i class="fas fa-socks"></i> Carpet Slippers</span>
+                            </div>
+                            <p class="additional-services">Hair dryer & Laundry service available on request</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Refuge Family Cottage -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="assets/gallery/rooms/refuge/1.jpg" alt="Refuge Cottage" loading="lazy">
+                    </div>
+                    <div class="room-info">
+                        <h3>Refuge Family Cottage</h3>
+                        <div class="room-specs">
+                            <span class="room-size"><i class="fas fa-expand"></i> 600 sq. ft.</span>
+                            <span class="room-type"><i class="fas fa-bed"></i> 2 Bedrooms</span>
+                            <span class="room-location"><i class="fas fa-mountain"></i> Valley Side</span>
+                        </div>
+                        <div class="room-description">
+                            <p>Valley 2Bedroom 1Bathroom petfriendly cottage with balcony, 1 master bedroom, 1kids bedroom, attached by a corridor and a cozy glass ceiling Tea/Sun Room. The view is oriented to face our valley orchard and all rooms have floor to ceiling windows. Interiors are fully wooden - pine walls and ceiling.</p>
+                            <div class="special-notes">
+                                <p><i class="fas fa-paw"></i> Pet friendly</p>
+                                <p><i class="fas fa-walking"></i> 2-3min walk to Ridge point (view point)</p>
+                            </div>
+                        </div>
+                        <div class="amenities-list">
+                            <h4>In-room Amenities</h4>
+                            <div class="amenities-grid">
+                                <span><i class="fas fa-wifi"></i> WiFi</span>
+                                <span><i class="fas fa-mug-hot"></i> Tea/Coffee Station</span>
+                                <span><i class="fas fa-phone"></i> Intercom</span>
+                                <span><i class="fas fa-temperature-high"></i> Room Heaters</span>
+                                <span><i class="fas fa-fan"></i> Pedestal Fans</span>
+                                <span><i class="fas fa-bed"></i> Electric Blankets</span>
+                                <span><i class="fas fa-snowflake"></i> Mini-fridge</span>
+                                <span><i class="fas fa-microwave"></i> Microwave</span>
+                                <span><i class="fas fa-tooth"></i> Dental Kit</span>
+                                <span><i class="fas fa-pump-soap"></i> Toiletries</span>
+                                <span><i class="fas fa-bath"></i> Bath Towels</span>
+                                <span><i class="fas fa-tshirt"></i> Towel Warming Rack</span>
+                                <span><i class="fas fa-socks"></i> Carpet Slippers</span>
+                            </div>
+                            <p class="additional-services">Hair dryer & Laundry service available on request</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tree House -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="assets/gallery/rooms/tree/7.jpg" alt="Tree House" loading="lazy">
+                    </div>
+                    <div class="room-info">
+                        <h3>Tree House</h3>
+                        <div class="room-specs">
+                            <span class="room-size"><i class="fas fa-expand"></i> 900 sq. ft.</span>
+                            <span class="room-type"><i class="fas fa-bed"></i> 1 Bedroom</span>
+                            <span class="room-location"><i class="fas fa-mountain"></i> Valley Side</span>
+                        </div>
+                        <div class="room-description">
+                            <p>Valley 1Bedroom Treehouse with jacuzzi, sauna & balcony. Surrounded by a walnut orchard and forest.</p>
+                            <div class="special-notes">
+                                <p><i class="fas fa-hot-tub"></i> Complimentary usage of Jacuzzi and Sauna for 2 hours per day of booking (except check-out day)</p>
+                                <p><i class="fas fa-paw"></i> Not pet friendly</p>
+                                <p><i class="fas fa-smoking-ban"></i> No smoking indoors (balcony/outdoors only)</p>
+                                <p><i class="fas fa-walking"></i> 2-3min walk to Ridge point (view point)</p>
+                            </div>
+                        </div>
+                        <div class="amenities-list">
+                            <h4>In-room Amenities</h4>
+                            <div class="amenities-grid">
+                                <span><i class="fas fa-wifi"></i> WiFi</span>
+                                <span><i class="fas fa-hot-tub"></i> Jacuzzi</span>
+                                <span><i class="fas fa-spa"></i> Sauna</span>
+                                <span><i class="fas fa-music"></i> Bluetooth Speaker</span>
+                                <span><i class="fas fa-charging-station"></i> Wireless Charging</span>
+                                <span><i class="fas fa-mug-hot"></i> Tea/Coffee Station</span>
+                                <span><i class="fas fa-phone"></i> Intercom</span>
+                                <span><i class="fas fa-temperature-high"></i> Room Heaters</span>
+                                <span><i class="fas fa-fan"></i> Pedestal Fans</span>
+                                <span><i class="fas fa-bed"></i> Electric Blankets</span>
+                                <span><i class="fas fa-snowflake"></i> Mini-fridge</span>
+                                <span><i class="fas fa-microwave"></i> Microwave</span>
+                                <span><i class="fas fa-tooth"></i> Dental Kit</span>
+                                <span><i class="fas fa-wind"></i> Hair Dryer</span>
+                                <span><i class="fas fa-pump-soap"></i> Toiletries</span>
+                                <span><i class="fas fa-socks"></i> Carpet Slippers</span>
+                            </div>
+                            <p class="additional-services">Laundry service available on request</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Walnut Cottage -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <img src="assets/gallery/rooms/walnut/1.jpeg" alt="Walnut Cottage" loading="lazy">
+                    </div>
+                    <div class="room-info">
+                        <h3>Walnut Cottage</h3>
+                        <div class="room-specs">
+                            <span class="room-size"><i class="fas fa-expand"></i> 350 sq. ft.</span>
+                            <span class="room-type"><i class="fas fa-bed"></i> 1 Bedroom</span>
+                            <span class="room-location"><i class="fas fa-mountain"></i> Valley Side</span>
+                        </div>
+                        <div class="room-description">
+                            <p>Valley 1Bedroom cottage situated amidst a walnut orchard. This cottage offers a cozy outdoor sitting area with a swing and alfresco table.</p>
+                            <div class="special-notes">
+                                <p><i class="fas fa-paw"></i> Not pet friendly</p>
+                                <p><i class="fas fa-smoking-ban"></i> No smoking indoors (outdoors only)</p>
+                                <p><i class="fas fa-walking"></i> 2-3min walk to Ridge point (view point)</p>
+                            </div>
+                        </div>
+                        <div class="amenities-list">
+                            <h4>In-room Amenities</h4>
+                            <div class="amenities-grid">
+                                <span><i class="fas fa-wifi"></i> WiFi</span>
+                                <span><i class="fas fa-mug-hot"></i> Tea/Coffee Station</span>
+                                <span><i class="fas fa-phone"></i> Intercom</span>
+                                <span><i class="fas fa-temperature-high"></i> Room Heaters</span>
+                                <span><i class="fas fa-fan"></i> Pedestal Fans</span>
+                                <span><i class="fas fa-bed"></i> Electric Blankets</span>
+                                <span><i class="fas fa-snowflake"></i> Mini-fridge</span>
+                                <span><i class="fas fa-microwave"></i> Microwave</span>
+                                <span><i class="fas fa-tooth"></i> Dental Kit</span>
+                                <span><i class="fas fa-pump-soap"></i> Toiletries</span>
+                                <span><i class="fas fa-bath"></i> Bath Towels</span>
+                                <span><i class="fas fa-tshirt"></i> Towel Warming Rack</span>
+                                <span><i class="fas fa-socks"></i> Carpet Slippers</span>
+                            </div>
+                            <p class="additional-services">Hair dryer & Laundry service available on request</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close">&times;</span>
+            <h2>Photo Gallery</h2>
+            
+            <!-- Gallery Filters -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-border-all"></i> All Photos
+                </button>
+                <button class="filter-btn" data-filter="exterior">
+                    <i class="fas fa-mountain"></i> Exterior & Views
+                </button>
+                <button class="filter-btn" data-filter="accommodation">
+                    <i class="fas fa-home"></i> Cottages & Rooms
+                </button>
+                <button class="filter-btn" data-filter="activities">
+                    <i class="fas fa-volleyball-ball"></i> Activities
+                </button>
+                <button class="filter-btn" data-filter="nature">
+                    <i class="fas fa-tree"></i> Nature
+                </button>
+            </div>
+
+            <div class="gallery-container">
+                <!-- Exterior & Views Category -->
+                <div class="gallery-category">
+                    <div class="gallery-grid">
+                        <div class="gallery-item" data-category="exterior">
+                            <img src="assets/gallery/exterior.jpg" alt="Property Exterior" loading="lazy">
+                            <div class="caption">Main Property View</div>
+                        </div>
+                        <div class="gallery-item" data-category="exterior">
+                            <img src="assets/gallery/exterior2.jpg" alt="Property Exterior" loading="lazy">
+                            <div class="caption">Garden View</div>
+                        </div>
+                        <div class="gallery-item" data-category="exterior">
+                            <img src="assets/gallery/exterior3.jpg" alt="Property Exterior" loading="lazy">
+                            <div class="caption">Pathway View</div>
+                        </div>
+                        <div class="gallery-item" data-category="nature">
+                            <img src="assets/gallery/hill.jpg" alt="Hill View" loading="lazy">
+                            <div class="caption">Surrounding Hills</div>
+                        </div>
+                        <div class="gallery-item" data-category="nature">
+                            <img src="assets/gallery/fog.jpg" alt="Foggy View" loading="lazy">
+                            <div class="caption">Misty Morning</div>
+                        </div>
+                        <div class="gallery-item" data-category="accommodation">
+                            <img src="assets/gallery/cottage1.jpg" alt="Cottage 1" loading="lazy">
+                            <div class="caption">Cottage Exterior</div>
+                        </div>
+                        <div class="gallery-item" data-category="accommodation">
+                            <img src="assets/gallery/cottage2.jpg" alt="Cottage 2" loading="lazy">
+                            <div class="caption">Valley View Cottage</div>
+                        </div>
+                        <div class="gallery-item" data-category="accommodation">
+                            <img src="assets/gallery/cottage3.jpg" alt="Cottage 3" loading="lazy">
+                            <div class="caption">Night View</div>
+                        </div>
+                        <div class="gallery-item" data-category="accommodation">
+                            <img src="assets/gallery/cottage4.jpg" alt="Cottage 4" loading="lazy">
+                            <div class="caption">Garden Cottage</div>
+                        </div>
+                        <div class="gallery-item" data-category="accommodation">
+                            <img src="assets/gallery/room1.jpg" alt="Room Interior" loading="lazy">
+                            <div class="caption">Room Interior</div>
+                        </div>
+                        <div class="gallery-item" data-category="accommodation">
+                            <img src="assets/gallery/room2.jpg" alt="Room Interior" loading="lazy">
+                            <div class="caption">Bedroom View</div>
+                        </div>
+                        <div class="gallery-item" data-category="activities">
+                            <img src="assets/gallery/indoor1.jpg" alt="Indoor Area" loading="lazy">
+                            <div class="caption">Indoor Common Area</div>
+                        </div>
+                        <div class="gallery-item" data-category="activities">
+                            <img src="assets/gallery/volleyball.jpg" alt="Volleyball Court" loading="lazy">
+                            <div class="caption">Volleyball Court</div>
+                        </div>
+                        <div class="gallery-item" data-category="activities">
+                            <img src="assets/gallery/chess.jpg" alt="Chess Area" loading="lazy">
+                            <div class="caption">Outdoor Chess</div>
+                        </div>
+                        <div class="gallery-item" data-category="activities">
+                            <img src="assets/gallery/pool1.jpg" alt="Swimming Pool" loading="lazy">
+                            <div class="caption">Swimming Pool</div>
+                        </div>
+                        <div class="gallery-item" data-category="activities">
+                            <img src="assets/gallery/playarea.jpg" alt="Play Area" loading="lazy">
+                            <div class="caption">Children's Play Area</div>
+                        </div>
+                        <div class="gallery-item" data-category="activities">
+                            <img src="assets/gallery/outfield.jpg" alt="Outfield" loading="lazy">
+                            <div class="caption">Open Field</div>
+                        </div>
+                        <div class="gallery-item" data-category="nature">
+                            <img src="assets/gallery/lake1.jpg" alt="Lake View" loading="lazy">
+                            <div class="caption">Sunset at Lake</div>
+                        </div>
+                        <div class="gallery-item" data-category="nature">
+                            <img src="assets/gallery/lake2.jpg" alt="Lake Activities" loading="lazy">
+                            <div class="caption">Lake Activities</div>
+                        </div>
+                        <div class="gallery-item" data-category="nature">
+                            <img src="assets/gallery/foresttrail.jpg" alt="Forest Trail" loading="lazy">
+                            <div class="caption">Forest Trail</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lightbox for full-size image viewing -->
+        <div class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <img src="" alt="Full size image">
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
