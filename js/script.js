@@ -143,13 +143,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Gallery functionality
     function initializeGallery() {
-        const galleryItems = document.querySelectorAll('.gallery-item');
+        const sliders = document.querySelectorAll('.gallery-slider');
         const filterBtns = document.querySelectorAll('.filter-btn');
-        
-        // Show all items initially
-        galleryItems.forEach(item => {
-            item.style.display = 'block';
-            item.style.opacity = '1';
+
+        // Show all sliders initially
+        sliders.forEach(slider => {
+            slider.classList.add('show');
+            initializeSlider(slider);
         });
 
         // Filter functionality
@@ -162,28 +162,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const filterValue = btn.getAttribute('data-filter');
 
-                galleryItems.forEach(item => {
-                    const itemCategory = item.getAttribute('data-category');
-                    
-                    // Fade out effect
-                    item.style.opacity = '0';
-                    
-                    setTimeout(() => {
-                        if (filterValue === 'all' || filterValue === itemCategory) {
-                            item.style.display = 'block';
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                            }, 50);
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    }, 300);
+                sliders.forEach(slider => {
+                    if (filterValue === 'all' || slider.getAttribute('data-category') === filterValue) {
+                        slider.classList.add('show');
+                    } else {
+                        slider.classList.remove('show');
+                    }
                 });
             });
         });
 
         // Lightbox functionality
-        galleryItems.forEach(item => {
+        const sliderItems = document.querySelectorAll('.slider-item');
+        sliderItems.forEach(item => {
             item.addEventListener('click', () => {
                 const img = item.querySelector('img');
                 const lightbox = document.querySelector('.lightbox');
@@ -191,19 +182,79 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 lightboxImg.src = img.src;
                 lightboxImg.alt = img.alt;
-                lightbox.classList.add('active');
+                lightbox.style.display = 'block';
                 document.body.style.overflow = 'hidden';
             });
         });
     }
 
-    // Initialize gallery when gallery modal opens
-    const galleryCard = document.getElementById('gallery-card');
-    if (galleryCard) {
-        galleryCard.addEventListener('click', () => {
-            setTimeout(initializeGallery, 100);
+    function initializeSlider(sliderElement) {
+        const track = sliderElement.querySelector('.slider-track');
+        const items = sliderElement.querySelectorAll('.slider-item');
+        const prevBtn = sliderElement.querySelector('.prev');
+        const nextBtn = sliderElement.querySelector('.next');
+        let currentIndex = 0;
+        
+        // Set initial position
+        updateSliderPosition();
+
+        // Add click handlers for buttons
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateSliderPosition();
         });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateSliderPosition();
+        });
+
+        // Add touch support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        track.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > 50) { // minimum swipe distance
+                if (diff > 0) {
+                    // Swipe left
+                    currentIndex = (currentIndex + 1) % items.length;
+                } else {
+                    // Swipe right
+                    currentIndex = (currentIndex - 1 + items.length) % items.length;
+                }
+                updateSliderPosition();
+            }
+        });
+
+        // Add keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (sliderElement.classList.contains('show')) {
+                if (e.key === 'ArrowLeft') {
+                    currentIndex = (currentIndex - 1 + items.length) % items.length;
+                    updateSliderPosition();
+                } else if (e.key === 'ArrowRight') {
+                    currentIndex = (currentIndex + 1) % items.length;
+                    updateSliderPosition();
+                }
+            }
+        });
+
+        function updateSliderPosition() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
     }
+
+    // Initialize gallery when gallery modal opens
+    document.getElementById('gallery-card').addEventListener('click', () => {
+        setTimeout(initializeGallery, 100);
+    });
 
     // Gallery Filtering
     function initializeGalleryFilters() {
