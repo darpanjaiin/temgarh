@@ -53,20 +53,64 @@
 
 /* Close Button */
 .modal-content.modal-large .close {
-    position: fixed;
-    right: 20px;
+    position: sticky;
     top: 20px;
-    font-size: 28px;
+    right: 20px;
+    font-size: 16px;
     cursor: pointer;
-    color: #2c3e50;
+    color: #fff;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.1);
-    width: 36px;
+    background: #e74c3c;
+    width: 80px;
     height: 36px;
-    border-radius: 50%;
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+    transition: all 0.3s ease;
+    margin-left: auto;
+    float: right;
+    border: none;
+    content: "Back";
+}
+
+.modal-content.modal-large .close:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .modal-content.modal-large {
+        width: 100%;
+        padding: 15px;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 30px;
+    }
+    
+    .modal-content.modal-large img {
+        max-height: 60vh;
+    }
+    
+    .image-caption {
+        font-size: 14px;
+    }
+
+    .collapsible-content.active {
+        max-height: 1500px;
+    }
+
+    .modal-content.modal-large .close {
+        width: 70px;
+        height: 32px;
+        font-size: 14px;
+        top: 15px;
+        right: 15px;
+    }
 }
 
 /* Collapsible Menu Styles */
@@ -101,28 +145,6 @@
 /* Smooth scroll for anchor links */
 [id] {
     scroll-margin-top: 20px;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .modal-content.modal-large {
-        width: 100%;
-        padding: 15px;
-        -webkit-overflow-scrolling: touch;
-        padding-bottom: 30px;
-    }
-    
-    .modal-content.modal-large img {
-        max-height: 60vh;
-    }
-    
-    .image-caption {
-        font-size: 14px;
-    }
-
-    .collapsible-content.active {
-        max-height: 1500px;
-    }
 }
 
 /* Emergency Contacts Styling */
@@ -2116,6 +2138,68 @@
     }
 }
 
+/* Gallery Filter Buttons */
+.gallery-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background: #f5f5f5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.filter-btn i {
+    font-size: 14px;
+}
+
+.filter-btn.active {
+    background: #3498db;
+    color: white;
+}
+
+.filter-btn:hover {
+    background: #3498db;
+    color: white;
+}
+
+/* Touch Support */
+.slider-container {
+    touch-action: pan-y pinch-zoom;
+}
+
+/* Loading State */
+.slider-item.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
+}
+
+.slider-item.loading::after {
+    content: '';
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* Review Prompt Button */
 .review-prompt-btn {
     position: fixed;
@@ -2247,19 +2331,10 @@
 }
 
 .review-prompt-close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    color: #666;
-    font-size: 24px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.review-prompt-close:hover {
-    color: #2c3e50;
+    position: sticky !important;
+    background: #e74c3c !important;
+    color: #fff !important;
+    font-size: 16px !important;
 }
 
 /* Mobile Responsive Adjustments */
@@ -2464,65 +2539,84 @@
     }
 }
 
-/* Gallery Filter Buttons */
-.gallery-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 15px;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.filter-btn {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 20px;
-    background: #f5f5f5;
+/* Universal Modal Back Button */
+.modal-back-btn,
+.modal-content .close,
+.modal-content.modal-large .close,
+#reviews-modal .close,
+#menu-modal .close,
+#rooms-modal .close,
+#amenities-modal .close,
+#book-now-modal .close,
+.review-prompt-modal .review-prompt-close {
+    position: sticky;
+    top: 20px;
+    right: 20px;
+    font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-}
-
-.filter-btn i {
-    font-size: 14px;
-}
-
-.filter-btn.active {
-    background: #3498db;
-    color: white;
-}
-
-.filter-btn:hover {
-    background: #3498db;
-    color: white;
-}
-
-/* Touch Support */
-.slider-container {
-    touch-action: pan-y pinch-zoom;
-}
-
-/* Loading State */
-.slider-item.loading {
+    color: #fff;
+    z-index: 1000;
+    background: #e74c3c;
+    width: 80px;
+    height: 36px;
+    border-radius: 18px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: #f8f9fa;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+    transition: all 0.3s ease;
+    margin-left: auto;
+    float: right;
+    border: none;
+    content: "Back";
 }
 
-.slider-item.loading::after {
-    content: '';
-    width: 40px;
-    height: 40px;
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
+.modal-back-btn:hover,
+.modal-content .close:hover,
+.modal-content.modal-large .close:hover,
+#reviews-modal .close:hover,
+#menu-modal .close:hover,
+#rooms-modal .close:hover,
+#amenities-modal .close:hover,
+#book-now-modal .close:hover,
+.review-prompt-modal .review-prompt-close:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .modal-back-btn,
+    .modal-content .close,
+    .modal-content.modal-large .close,
+    #reviews-modal .close,
+    #menu-modal .close,
+    #rooms-modal .close,
+    #amenities-modal .close,
+    #book-now-modal .close,
+    .review-prompt-modal .review-prompt-close {
+        width: 70px;
+        height: 32px;
+        font-size: 14px;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+/* Override any existing close button styles */
+.review-prompt-close {
+    position: sticky !important;
+    background: #e74c3c !important;
+    color: #fff !important;
+    font-size: 16px !important;
+}
+
+/* Remove any conflicting styles */
+.modal-content .close span,
+.review-prompt-close span {
+    display: none;
 }
 
