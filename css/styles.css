@@ -94,52 +94,63 @@ h1 {
 .quick-access-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    padding: 16px;
-    margin: 8px auto 24px;
-    max-width: 360px;
-    width: 100%;
+    gap: 10px;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 24px;  /* increased from 12px to 24px */
+    align-items: start;
 }
-
 .grid-item {
     aspect-ratio: 1;
-    border-radius: 12px;
+    border-radius: 20px;
     background: transparent;
-    padding: 8px 4px;
+    padding: 10px 6px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.grid-item:active {
+    transform: scale(0.95);
 }
 
 .grid-item .icon-wrapper {
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 16px;
     margin-bottom: 6px;
+    background: transparent;
+    transition: transform 0.2s ease;
 }
 
 .grid-item .icon-wrapper i {
-    font-size: 20px;
+    font-size: 26px;
     color: #000000;
 }
 
+/* Simple press effect */
+.grid-item:active .icon-wrapper {
+    transform: scale(0.95);
+}
+
 .grid-item h3 {
-    font-size: 11px;
-    line-height: 1.2;
+    font-size: 13px;
+    line-height: 1.1;
     margin: 0;
     text-align: center;
     color: #000;
-    font-weight: 600;
-    letter-spacing: -0.2px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
     width: 100%;
 }
 
 .grid-item h3.two-line {
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1.3;
 }
 
@@ -2835,64 +2846,5 @@ body {
     background: none;
     color: inherit;
 }
-/* Add bottom margin to quick access grid */
-.quick-access-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    padding: 16px;
-    margin-top: 8px;
-    margin-bottom: 24px;
-}
 
-.grid-item {
-    aspect-ratio: 1;
-    border-radius: 20px;
-    background: transparent;
-    padding: 12px 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100%;
-}
 
-.grid-item:active {
-    transform: scale(0.95);
-}
-
-.grid-item .icon-wrapper {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 8px;
-}
-
-.grid-item .icon-wrapper i {
-    font-size: 24px;
-    color: #000000;
-}
-
-/* Simple press effect */
-.grid-item:active .icon-wrapper {
-    transform: scale(0.95);
-}
-
-.grid-item h3 {
-    font-size: 12px;
-    line-height: 1.2;
-    margin: 0;
-    text-align: center;
-    color: #000;
-    font-weight: 600;
-    letter-spacing: -0.3px;
-    width: 100%;
-}
-
-.grid-item h3.two-line {
-    font-size: 12px;
-    line-height: 1.3;
-}
