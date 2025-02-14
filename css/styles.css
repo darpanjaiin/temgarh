@@ -94,21 +94,22 @@ h1 {
 .quick-access-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 12px;
+    gap: 12px;
+    padding: 16px;
     margin-top: 8px;
-    margin-bottom: 24px;  /* increased from 12px to 24px */
-    align-items: start;
+    margin-bottom: 24px;
 }
+
 .grid-item {
     aspect-ratio: 1;
     border-radius: 20px;
     background: transparent;
-    padding: 10px 6px;
+    padding: 12px 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    text-align: center;
     height: 100%;
 }
 
@@ -117,19 +118,16 @@ h1 {
 }
 
 .grid-item .icon-wrapper {
-    width: 55px;
-    height: 55px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 16px;
-    margin-bottom: 6px;
-    background: transparent;
-    transition: transform 0.2s ease;
+    margin-bottom: 8px;
 }
 
 .grid-item .icon-wrapper i {
-    font-size: 26px;
+    font-size: 24px;
     color: #000000;
 }
 
@@ -139,18 +137,18 @@ h1 {
 }
 
 .grid-item h3 {
-    font-size: 13px;
-    line-height: 1.1;
+    font-size: 12px;
+    line-height: 1.2;
     margin: 0;
     text-align: center;
     color: #000;
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: -0.3px;
     width: 100%;
 }
 
 .grid-item h3.two-line {
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.3;
 }
 
