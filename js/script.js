@@ -563,4 +563,105 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Sports Slider Functionality
+    function initSportsSlider() {
+        const sliderWrapper = document.querySelector('.amenity-image .slider-wrapper');
+        if (!sliderWrapper) return;
+
+        const sliderTrack = sliderWrapper.querySelector('.slider-track');
+        const slides = sliderWrapper.querySelectorAll('.slider-item');
+        const prevBtn = sliderWrapper.querySelector('.prev');
+        const nextBtn = sliderWrapper.querySelector('.next');
+        
+        let currentIndex = 0;
+        const slideWidth = 100; // 100%
+
+        // Preload images
+        slides.forEach(slide => {
+            const img = slide.querySelector('img');
+            if (img) {
+                const newImg = new Image();
+                newImg.src = img.src;
+                newImg.onload = () => {
+                    img.style.opacity = '1';
+                };
+            }
+        });
+
+        function updateSlider() {
+            sliderTrack.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        // Event Listeners
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            prevSlide();
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            nextSlide();
+        });
+
+        // Touch support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        sliderWrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        sliderWrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > 50) { // threshold of 50px
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }, { passive: true });
+
+        // Auto-advance every 4 seconds
+        let slideInterval = setInterval(nextSlide, 4000);
+
+        // Pause auto-advance on hover/touch
+        sliderWrapper.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+
+        sliderWrapper.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 4000);
+        });
+
+        // Clear interval when modal is closed
+        const modal = document.getElementById('amenities-modal');
+        const closeButton = modal.querySelector('.close');
+        closeButton.addEventListener('click', () => {
+            clearInterval(slideInterval);
+        });
+
+        // Initial position
+        updateSlider();
+    }
+
+    // Initialize slider when amenities modal opens
+    document.getElementById('amenities-card').addEventListener('click', function() {
+        setTimeout(() => {
+            initSportsSlider();
+        }, 300); // Delay to ensure modal is fully opened
+    });
 }); 
