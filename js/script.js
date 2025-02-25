@@ -569,13 +569,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const sliderWrapper = document.querySelector('.amenity-image .slider-wrapper');
         if (!sliderWrapper) return;
 
-        const sliderTrack = sliderWrapper.querySelector('.slider-track');
         const slides = sliderWrapper.querySelectorAll('.slider-item');
         const prevBtn = sliderWrapper.querySelector('.prev');
         const nextBtn = sliderWrapper.querySelector('.next');
         
         let currentIndex = 0;
-        const slideWidth = 100; // 100%
+
+        // Set initial state - show first slide
+        slides[currentIndex].classList.add('active');
 
         // Preload images
         slides.forEach(slide => {
@@ -589,18 +590,21 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        function updateSlider() {
-            sliderTrack.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            // Show the current slide
+            slides[index].classList.add('active');
         }
 
         function nextSlide() {
             currentIndex = (currentIndex + 1) % slides.length;
-            updateSlider();
+            showSlide(currentIndex);
         }
 
         function prevSlide() {
             currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateSlider();
+            showSlide(currentIndex);
         }
 
         // Event Listeners
@@ -620,6 +624,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         sliderWrapper.addEventListener('touchstart', (e) => {
             touchStartX = e.touches[0].clientX;
+            clearInterval(slideInterval); // Pause on touch
         }, { passive: true });
 
         sliderWrapper.addEventListener('touchend', (e) => {
@@ -633,12 +638,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     prevSlide();
                 }
             }
+            
+            // Resume auto-sliding
+            slideInterval = setInterval(nextSlide, 4000);
         }, { passive: true });
 
         // Auto-advance every 4 seconds
         let slideInterval = setInterval(nextSlide, 4000);
 
-        // Pause auto-advance on hover/touch
+        // Pause auto-advance on hover
         sliderWrapper.addEventListener('mouseenter', () => {
             clearInterval(slideInterval);
         });
@@ -654,8 +662,12 @@ document.addEventListener('DOMContentLoaded', function() {
             clearInterval(slideInterval);
         });
 
-        // Initial position
-        updateSlider();
+        // Also clear when clicking outside modal
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                clearInterval(slideInterval);
+            }
+        });
     }
 
     // Initialize slider when amenities modal opens
