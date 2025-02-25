@@ -37,7 +37,7 @@ body {
 }
 
 .hero-image img {
-    width: 100%;
+    width: 120%;
     height: 300px;
     object-fit: contain;
 }
@@ -407,14 +407,27 @@ footer {
     border-radius: 16px;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
 }
 
 .exp-image {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
     border-radius: 12px;
     margin-bottom: 15px;
+    display: block;
+}
+
+.experience-cards .exp-card img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    object-fit: none;
+    border-radius: 12px;
+    margin: 0 auto 15px;
+    display: block;
 }
 
 .restaurant-grid, .spots-grid {
@@ -650,7 +663,7 @@ p, span, h1, h2, h3, h4, h5, h6 {
     }
 
     .hero-image {
-        width: 120%;
+        width: 150%;
         margin-right: -100px;
         margin-left: -50px;
         margin-top: -50px;
@@ -2243,4 +2256,30 @@ body {
 .quick-access-grid .top-row {
     display: flex;
     justify-content: space-between;
+}
+
+/* Ensure all modal images fit properly */
+.modal-section img,
+.modal-sections img,
+.attraction-card img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Fix for the river image specifically */
+.gallery-item img,
+.exp-image,
+.experience-cards .exp-card img,
+.rest-image,
+.spot-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    display: block;
 }
