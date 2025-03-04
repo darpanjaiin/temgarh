@@ -2115,39 +2115,40 @@ body {
 .amenity-image .slider-wrapper {
     position: relative;
     width: 100%;
+    height: 250px;
     overflow: hidden;
     border-radius: 12px;
     margin: 15px 0;
-    height: 250px;
+    background: #f5f5f5;
 }
 
 .amenity-image .slider-container {
     width: 100%;
-    position: relative;
-    overflow: hidden;
     height: 100%;
+    position: relative;
 }
 
 .amenity-image .slider-track {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
     height: 100%;
+    width: 100%;
+    position: relative;
 }
 
 .amenity-image .slider-item {
-    min-width: 100%;
-    position: relative;
-    height: 100%;
-    opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
     transition: opacity 0.5s ease;
+    pointer-events: none;
 }
 
 .amenity-image .slider-item.active {
     opacity: 1;
     z-index: 1;
+    pointer-events: auto;
 }
 
 .amenity-image .slider-item img {
@@ -2163,7 +2164,7 @@ body {
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     color: white;
     border: none;
     border-radius: 50%;
@@ -2173,11 +2174,12 @@ body {
     justify-content: center;
     cursor: pointer;
     z-index: 10;
+    transition: all 0.3s ease;
     opacity: 0.8;
-    transition: opacity 0.3s ease;
 }
 
 .amenity-image .slider-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
     opacity: 1;
 }
 
@@ -2189,34 +2191,23 @@ body {
     right: 10px;
 }
 
-/* Caption for sports slider */
-.amenity-image .caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    color: white;
-    padding: 10px;
-    text-align: center;
-    border-radius: 0 0 12px 12px;
-    z-index: 2;
+.amenity-image .slider-btn i {
+    font-size: 16px;
+    line-height: 1;
 }
 
-.quick-access-grid .icon-wrapper {
-    width: 50px;
-    height: 50px;
-    background: transparent;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 6px;
-}
-
-.quick-access-grid .icon-wrapper i {
-    font-size: 24px;
-    color: #000000;
+/* Ensure buttons are more visible on mobile */
+@media (max-width: 768px) {
+    .amenity-image .slider-btn {
+        width: 36px;
+        height: 36px;
+        background: rgba(0, 0, 0, 0.8);
+        opacity: 1;
+    }
+    
+    .amenity-image .slider-wrapper {
+        height: 200px;
+    }
 }
 
 /* Instagram Follow Button Styles */

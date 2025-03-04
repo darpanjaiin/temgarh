@@ -566,127 +566,137 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Sports Slider Functionality
     function initSportsSlider() {
-        // Get all slider wrappers in the amenities modal
-        const sliderWrappers = document.querySelectorAll('#amenities-modal .slider-wrapper');
-        if (!sliderWrappers.length) {
-            console.error('No slider wrappers found in amenities modal');
+        const sliderWrapper = document.querySelector('#amenities-modal .amenity-image .slider-wrapper');
+        if (!sliderWrapper) {
+            console.error('Slider wrapper not found');
             return;
         }
+
+        const slides = sliderWrapper.querySelectorAll('.slider-item');
+        const prevBtn = sliderWrapper.querySelector('.slider-btn.prev');
+        const nextBtn = sliderWrapper.querySelector('.slider-btn.next');
         
-        console.log(`Found ${sliderWrappers.length} slider wrappers`);
+        if (!slides.length || !prevBtn || !nextBtn) {
+            console.error('Required slider elements not found');
+            return;
+        }
+
+        let currentIndex = 0;
+        let isAnimating = false;
+
+        // Initialize first slide
+        slides[0].classList.add('active');
+
+        function showSlide(index) {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            // Remove active class from all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            // Add active class to target slide
+            slides[index].classList.add('active');
+
+            // Allow next animation after transition completes
+            setTimeout(() => {
+                isAnimating = false;
+            }, 500); // Match this with CSS transition duration
+        }
+
+        function nextSlide() {
+            if (isAnimating) return;
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            if (isAnimating) return;
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        // Event Listeners
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            prevSlide();
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            nextSlide();
+        });
+
+        // Touch support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        sliderWrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            clearInterval(autoSlideInterval);
+        }, { passive: true });
+
+        sliderWrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > 50) { // threshold of 50px
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }, { passive: true });
+
+        // Auto-advance slides
+        let autoSlideInterval = setInterval(nextSlide, 4000);
+
+        // Pause auto-advance on hover
+        sliderWrapper.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        sliderWrapper.addEventListener('mouseleave', () => {
+            autoSlideInterval = setInterval(nextSlide, 4000);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('amenities-modal').style.display === 'block') {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                }
+            }
+        });
+
+        // Clear interval when modal is closed
+        const modal = document.getElementById('amenities-modal');
+        const closeButton = modal.querySelector('.close');
         
-        // Handle each slider wrapper separately
-        sliderWrappers.forEach(sliderWrapper => {
-            const slides = sliderWrapper.querySelectorAll('.slider-item');
-            const prevBtn = sliderWrapper.querySelector('.slider-btn.prev');
-            const nextBtn = sliderWrapper.querySelector('.slider-btn.next');
-            
-            if (!slides.length) {
-                console.error('No slides found in slider wrapper');
-                return;
+        closeButton.addEventListener('click', () => {
+            clearInterval(autoSlideInterval);
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                clearInterval(autoSlideInterval);
             }
-            
-            if (!prevBtn || !nextBtn) {
-                console.error('Navigation buttons not found in slider wrapper');
-                return;
+        });
+
+        // Preload images for smooth transitions
+        slides.forEach(slide => {
+            const img = slide.querySelector('img');
+            if (img) {
+                const newImg = new Image();
+                newImg.src = img.src;
+                newImg.onload = () => {
+                    img.style.opacity = '1';
+                };
             }
-            
-            let currentIndex = 0;
-            
-            // Set initial state - show first slide
-            slides[currentIndex].classList.add('active');
-            
-            // Preload images
-            slides.forEach(slide => {
-                const img = slide.querySelector('img');
-                if (img) {
-                    const newImg = new Image();
-                    newImg.src = img.src;
-                    newImg.onload = () => {
-                        img.style.opacity = '1';
-                    };
-                }
-            });
-            
-            function showSlide(index) {
-                // Hide all slides
-                slides.forEach(slide => slide.classList.remove('active'));
-                // Show the current slide
-                slides[index].classList.add('active');
-            }
-            
-            function nextSlide(e) {
-                if (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-                currentIndex = (currentIndex + 1) % slides.length;
-                showSlide(currentIndex);
-            }
-            
-            function prevSlide(e) {
-                if (e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                showSlide(currentIndex);
-            }
-            
-            // Event Listeners
-            prevBtn.addEventListener('click', prevSlide);
-            nextBtn.addEventListener('click', nextSlide);
-            
-            // Touch support
-            let touchStartX = 0;
-            let touchEndX = 0;
-            
-            sliderWrapper.addEventListener('touchstart', (e) => {
-                touchStartX = e.touches[0].clientX;
-                clearInterval(slideInterval); // Pause on touch
-            }, { passive: true });
-            
-            sliderWrapper.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].clientX;
-                const diff = touchStartX - touchEndX;
-                
-                if (Math.abs(diff) > 50) { // threshold of 50px
-                    if (diff > 0) {
-                        nextSlide();
-                    } else {
-                        prevSlide();
-                    }
-                }
-                
-                // Resume auto-sliding
-                slideInterval = setInterval(() => nextSlide(), 4000);
-            }, { passive: true });
-            
-            // Auto-advance every 4 seconds
-            let slideInterval = setInterval(() => nextSlide(), 4000);
-            
-            // Pause auto-advance on hover
-            sliderWrapper.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-            
-            sliderWrapper.addEventListener('mouseleave', () => {
-                slideInterval = setInterval(() => nextSlide(), 4000);
-            });
-            
-            // Clear interval when modal is closed
-            const modal = document.getElementById('amenities-modal');
-            const closeButton = modal.querySelector('.close');
-            closeButton.addEventListener('click', () => {
-                clearInterval(slideInterval);
-            });
-            
-            // Also clear when clicking outside modal
-            window.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    clearInterval(slideInterval);
-                }
-            });
         });
     }
 
