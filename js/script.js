@@ -564,131 +564,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Sports Slider Functionality
-    function initSportsSlider() {
-        const sliderWrapper = document.querySelector('#amenities-modal .amenity-image .slider-wrapper');
-        if (!sliderWrapper) {
-            console.error('Slider wrapper not found');
+    // Sports Images Auto-change Functionality
+    function initSportsImages() {
+        const wrapper = document.querySelector('#amenities-modal .amenity-image .slider-wrapper');
+        if (!wrapper) {
+            console.error('Image wrapper not found');
             return;
         }
 
-        const slides = sliderWrapper.querySelectorAll('.slider-item');
-        const prevBtn = sliderWrapper.querySelector('.slider-btn.prev');
-        const nextBtn = sliderWrapper.querySelector('.slider-btn.next');
-        
-        if (!slides.length || !prevBtn || !nextBtn) {
-            console.error('Required slider elements not found');
+        const images = wrapper.querySelectorAll('.slider-item');
+        if (!images.length) {
+            console.error('No images found');
             return;
         }
 
         let currentIndex = 0;
-        let isAnimating = false;
+        let interval;
 
-        // Initialize first slide
-        slides[0].classList.add('active');
-
-        function showSlide(index) {
-            if (isAnimating) return;
-            isAnimating = true;
-
-            // Remove active class from all slides
-            slides.forEach(slide => slide.classList.remove('active'));
-            
-            // Add active class to target slide
-            slides[index].classList.add('active');
-
-            // Allow next animation after transition completes
-            setTimeout(() => {
-                isAnimating = false;
-            }, 500); // Match this with CSS transition duration
+        function showImage(index) {
+            // Remove active class from all images
+            images.forEach(img => img.classList.remove('active'));
+            // Add active class to current image
+            images[index].classList.add('active');
         }
 
-        function nextSlide() {
-            if (isAnimating) return;
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
         }
 
-        function prevSlide() {
-            if (isAnimating) return;
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            showSlide(currentIndex);
+        function startAutoChange() {
+            // Initialize first image
+            showImage(currentIndex);
+            // Set up auto-change interval
+            interval = setInterval(nextImage, 2000);
         }
 
-        // Event Listeners
-        prevBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            prevSlide();
-        });
-
-        nextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            nextSlide();
-        });
-
-        // Touch support
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        sliderWrapper.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            clearInterval(autoSlideInterval);
-        }, { passive: true });
-
-        sliderWrapper.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].clientX;
-            const diff = touchStartX - touchEndX;
-
-            if (Math.abs(diff) > 50) { // threshold of 50px
-                if (diff > 0) {
-                    nextSlide();
-                } else {
-                    prevSlide();
-                }
+        function stopAutoChange() {
+            if (interval) {
+                clearInterval(interval);
+                interval = null;
             }
-        }, { passive: true });
+        }
 
-        // Auto-advance slides
-        let autoSlideInterval = setInterval(nextSlide, 4000);
-
-        // Pause auto-advance on hover
-        sliderWrapper.addEventListener('mouseenter', () => {
-            clearInterval(autoSlideInterval);
-        });
-
-        sliderWrapper.addEventListener('mouseleave', () => {
-            autoSlideInterval = setInterval(nextSlide, 4000);
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (document.getElementById('amenities-modal').style.display === 'block') {
-                if (e.key === 'ArrowLeft') {
-                    prevSlide();
-                } else if (e.key === 'ArrowRight') {
-                    nextSlide();
-                }
-            }
-        });
-
-        // Clear interval when modal is closed
-        const modal = document.getElementById('amenities-modal');
-        const closeButton = modal.querySelector('.close');
-        
-        closeButton.addEventListener('click', () => {
-            clearInterval(autoSlideInterval);
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                clearInterval(autoSlideInterval);
-            }
-        });
+        // Start auto-changing when modal opens
+        startAutoChange();
 
         // Preload images for smooth transitions
-        slides.forEach(slide => {
+        images.forEach(slide => {
             const img = slide.querySelector('img');
             if (img) {
                 const newImg = new Image();
@@ -698,12 +621,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
             }
         });
+
+        // Clean up when modal is closed
+        const modal = document.getElementById('amenities-modal');
+        const closeButton = modal.querySelector('.close');
+        
+        closeButton.addEventListener('click', stopAutoChange);
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                stopAutoChange();
+            }
+        });
+
+        // Optional: Pause on hover
+        wrapper.addEventListener('mouseenter', stopAutoChange);
+        wrapper.addEventListener('mouseleave', startAutoChange);
     }
 
-    // Initialize slider when amenities modal opens
+    // Initialize auto-changing images when amenities modal opens
     document.getElementById('amenities-card').addEventListener('click', function() {
         setTimeout(() => {
-            initSportsSlider();
+            initSportsImages();
         }, 300); // Delay to ensure modal is fully opened
     });
 }); 
